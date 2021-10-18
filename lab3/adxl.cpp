@@ -15,6 +15,70 @@ void setup() {
   Serial.begin(115200);
  
 }
+
+void readAcclToData(){
+  
+  Wire.beginTransmission(Addr);
+  Wire.begin(sda,scl);
+  Wire.write(0x2C);
+  Wire.write(0x0A);
+  Wire.endTransmission();
+  
+
+  Wire.beginTransmission(Addr);
+  Wire.write(0x2D);
+  Wire.write(0x08);
+  Wire.endTransmission();
+
+Wire.beginTransmission(Addr);
+
+  Wire.write(0x31);
+  Wire.write(0x08);
+  Wire.endTransmission();
+   delay(300);
+// 少了 delay 就有问题 好像
+  for(int i=0;i<6;i++){
+     Wire.beginTransmission(Addr);
+     Wire.write((50+i));
+     Wire.endTransmission();
+       Wire.requestFrom(Addr,1);
+  if(Wire.available()==1){
+    data[i]=Wire.read();
+  }
+  }
+
+
+}
+
+int getXAccl(){
+    xAccl=(((data[1]&0x03)*256)+data[0]);
+  if(xAccl>551){
+    xAccl-=1024;
+  }
+  return xAccl;
+}
+
+
+int getYAccl(){
+   yAccl=(((data[3]&0x03)*256)+data[2]);
+  if(yAccl>551){
+    yAccl-=1024;
+  }
+   return yAccl;
+}
+
+
+int getZAccl(){
+ 
+      zAccl=(((data[5]&0x03)*256)+data[4]);
+  if(zAccl>551){
+    zAccl-=1024;
+  }
+   return zAccl;
+}
+
+
+
 // 可以使用
 void loop() {
   

@@ -1,0 +1,15 @@
+{
+  "files.associations": {
+    "cstdint": "cpp",
+    "cstdlib": "cpp",
+    "limits": "cpp",
+    "new": "cpp",
+    "vector": "cpp",
+    "xmemory": "cpp",
+    "xutility": "cpp",
+    "cwchar": "cpp",
+    "tuple": "cpp",
+    "type_traits": "cpp",
+    "utility": "cpp"
+  }
+}
