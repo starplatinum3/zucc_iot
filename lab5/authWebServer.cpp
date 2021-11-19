@@ -6,8 +6,11 @@
 // #define STASSID "GreenIoT"
 // #define STAPSK "*******"
 
-#define STASSID "xxx"
-#define STAPSK "xxx"
+// #define STASSID "xxx"
+// #define STAPSK "xxx"
+
+#define STASSID "esp-mqp"
+#define STAPSK "putongbasi123"
 
 #endif
 const char *ssid = STASSID;
