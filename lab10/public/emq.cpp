@@ -1,24 +1,16 @@
 #include <ESP8266WiFi.h>
 #include "Adafruit_MQTT.h"
 #include "Adafruit_MQTT_Client.h"
-// #define WLAN_SSID   "xxx"
-// #define WLAN_PASS   "1234567890"
+
 
 #define WLAN_SSID "xxx"
 #define WLAN_PASS "xxx"
 
-// #define AIO_SERVER "11.cn-hangzhou.emqxcloud.cn"
-// #define AIO_SERVER "ma4c9890.cn-hangzhou.emqxcloud.cn"
-
-// #define AIO_SERVERPORT 11168
-// #define AIO_USERNAME "test"
-// #define AIO_KEY "public"
-
 #define AIO_SERVER "ma4c9890.cn-hangzhou.emqxcloud.cn"
-
 #define AIO_SERVERPORT 11777
-#define AIO_USERNAME ""
+#define AIO_USERNAME "xxx"
 #define AIO_KEY "xxx"
+
 
 #include "SSD1306Wire.h"
 SSD1306Wire display(0x3c, 2, 14);
