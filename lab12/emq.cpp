@@ -7,9 +7,9 @@
 #define WLAN_PASS "xxx"
 
 
-#define AIO_SERVER "xxx"
+#define AIO_SERVER "139.196.xx.x"
 #define AIO_SERVERPORT 1883
-#define AIO_USERNAME "xxx" byx
+#define AIO_USERNAME "xx"
 #define AIO_KEY "xxx"
 
 
@@ -29,12 +29,8 @@ StaticJsonDocument<200> doc;
 Adafruit_MQTT_Client mqtt(&client, AIO_SERVER, AIO_SERVERPORT, AIO_USERNAME, AIO_KEY);
 // Setup a feed called 'photocell' for publishing.
 // Notice MQTT paths for AIO follow the form: <username>/feeds/<feedname>
-Adafruit_MQTT_Publish photocell = Adafruit_MQTT_Publish(&mqtt,  AIO_USERNAME"iot/1");
-// AIO_USERNAME=
-// "byxiot/1"
-// iot/1
+Adafruit_MQTT_Publish photocell = Adafruit_MQTT_Publish(&mqtt, AIO_USERNAME "iot/1");
 
-// xxxiot/1
 
 // Setup a feed called 'onoff' for subscribing to changes.
 // Adafruit_MQTT_Subscribe onoffbutton = Adafruit_MQTT_Subscribe(&mqtt, AIO_USERNAME "iot/2");
@@ -129,12 +125,25 @@ void loop()
       display.clear();
       display.drawString(0, 10, "topic: iot/1");
       display.drawString(0, 20, (char *)onoffbutton.lastread);
-      // display.display();
+      display.display();
 
-      StaticJsonDocument<200> ledJson;
-//   deserializeJson(ledJson,(char*)onoffbutton.lastread);
-    deserializeJson(ledJson,read);
-  drawRgb(ledJson["r"],ledJson["g"],ledJson["b"]);
+drawRgb(111,111,111);
+
+//       StaticJsonDocument<200> ledJson;
+// //   deserializeJson(ledJson,(char*)onoffbutton.lastread);
+//     deserializeJson(ledJson,read);
+//   drawRgb(ledJson["r"],ledJson["g"],ledJson["b"]);
+
+//        if(strcmp(read,"1")==0){
+// //   drawRgb()
+
+// StaticJsonDocument<200> ledJson;
+//   deserializeJson(ledJson,(char*)read.lastread);
+//   drawRgb(ledJson["r"],ledJson["g"],ledJson["b"]);
+//     //   analogWrite(12, led["valueR"]);   
+//     //   analogWrite(13, led["valueG"]);
+//     //   analogWrite(15, led["valueB"]);
+//  }
 
       delay(2000);
     }
